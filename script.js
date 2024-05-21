@@ -216,7 +216,7 @@
     let chatHistory = [];
 
     // Task specific rules are to help short circuit the agent's reasoning on common tasks
-    const taskSpecificRules = ""
+    const taskSpecificRules = []
     // For example, "If the user requests to change the theme color, click user-dropdown-toggle > click preferences > in color theme, click on user specified color"
 
     sendButton.addEventListener('click', async () => {
@@ -272,7 +272,7 @@
                         { role: 'user', content: `This is the DOM for the page the user is currently on. ${currentDOMState}` },
                         {
                             role: 'user',
-                            content: `These are task specific rules, use them as a guide if user requests anything from this list: ${taskSpecificRules}`
+                            content: `These are task specific rules, use them as a guide if user requests anything from this list: \n${taskSpecificRules.join('\n')}`
                         },
                     ],
                     temperature: 0.7
